@@ -4,7 +4,7 @@ A simple deployment and log tracking script for spring-boot application.
 ## deploy.sh
 ```shell
 #!/bin/bash -e
-cd /home/apps/movielover
+cd /home/apps/applications
 if [ -f "app.pid" ];
 	then
 		PID=$(cat app.pid)
@@ -18,15 +18,15 @@ if [ -f "app.pid" ];
 	rm -f app.pid
 fi
 echo "Starting app"
-java -jar movie-lover.jar --spring.profiles.active=prod --server.port=9001 > movie-lover.log 2>&1 & echo -n $! > app.pid
+java -jar application-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod --server.port=9001 > application-0.0.1-SNAPSHOT.log 2>&1 & echo -n $! > app.pid
 PID=$(cat app.pid)
 echo process id: $PID
 echo waiting 20 seconds
 sleep 20
-echo movie-lover.jar
+echo application-0.0.1-SNAPSHOT.jar
 ls -lart
-ls -t | grep "movie-*" | tail -n +5 | xargs rm -f
+ls -t | grep "application-*" | tail -n +5 | xargs rm -f
 ls -lart
-cat movie-lover.log
+cat application-0.0.1-SNAPSHOT.log
 ps -o pid,command $PID || { echo "Process $PID not running"; exit 1;}
 ```
