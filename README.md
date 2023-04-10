@@ -1,5 +1,5 @@
 # deployment-script
-Deployment Script
+A simple deployment and log tracking script for spring-boot application.
 
 ## deploy.sh
 ```
