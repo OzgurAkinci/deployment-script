@@ -2,7 +2,7 @@
 A simple deployment and log tracking script for spring-boot application.
 
 ## deploy.sh
-```
+```shell
 #!/bin/bash -e
 cd /home/apps/movielover
 if [ -f "app.pid" ];
